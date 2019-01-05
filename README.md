@@ -1,5 +1,4 @@
 # Android-Practice
-안드로이드를 공부하고 연습한다.
 
 ## 1월 4일
  - Button에 onClick으로 기능을 넣어준다.
