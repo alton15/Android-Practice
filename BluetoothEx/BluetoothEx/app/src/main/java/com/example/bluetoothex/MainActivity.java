@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private byte[] readBuffer; // 수신 된 문자열을 저장하기 위한 버퍼
     private int readBufferPosition; // 버퍼 내 문자 저장 위치
 
+    static byte id = 0;
+
     Button btn_send;
     EditText edt_send;
     TextView tv_receive;
