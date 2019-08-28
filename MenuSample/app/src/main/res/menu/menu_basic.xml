@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- item에는 id와 title이 최소로 들어가야한다-->
+    <!-- 메뉴를 추가할떈 item 단위로 -->
+    <item
+        android:id="@+id/menu_1"
+        android:title="첫번째 메뉴 버튼"
+        />
+
+    <item
+        android:id="@+id/menu_2"
+        android:title="두번째 메뉴 버튼"
+        />
+
+</menu>

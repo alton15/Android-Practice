@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_con_1"
+        android:title="빨간색 배경 설정"
+        />
+
+    <item
+        android:id="@+id/menu_con_2"
+        android:title="파란색 배경 설정"
+        />
+
+    <item
+        android:id="@+id/menu_con_3"
+        android:title="초록색 배경 설정"
+        />
+
+
+</menu>
