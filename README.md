@@ -18,3 +18,7 @@
   * permission
   * provider
   * Uri 활용
+
+## 10월 30일
+
+- 회원 관리 프로젝트 생성
