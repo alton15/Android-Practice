@@ -1,5 +1,7 @@
 # Android-Practice
 
+## 안드로이드 기초 지식을 활용한 공부
+
 ## 1월 4일
  - Button에 onClick으로 기능을 넣어준다.
     - Toast로 메세지 띄우기.
