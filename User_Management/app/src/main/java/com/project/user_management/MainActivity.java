@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         edt_id = findViewById(R.id.edt_id);
         edt_password = findViewById(R.id.edt_password);
-        
+
         tv_welcome = findViewById(R.id.tv_welcome);
     }
 }
