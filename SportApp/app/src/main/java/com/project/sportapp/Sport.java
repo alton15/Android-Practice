@@ -13,4 +13,8 @@ public class Sport {
     String getTitle() { return title; }
     String getInfo() { return info; }
 
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
 }
