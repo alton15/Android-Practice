@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -59,10 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
         String[] sportsList = getResources().getStringArray(R.array.sports_titles);
         String[] sportsInfo = getResources().getStringArray(R.array.sports_info);
+        TypedArray sportsImageResourse = getResources().obtainTypedArray(R.array.sports_image);
 
         for(int i = 0; i < sportsList.length; i++) {
-        mSportsData.add(new Sport(sportsList[i], sportsInfo[i]));
+            mSportsData.add(new Sport(sportsList[i], sportsInfo[i], sportsImageResourse.getResourceId(i, 0)));
         }
+
+        sportsImageResourse.recycle();
 
         mAdapter.notifyDataSetChanged();
     }
