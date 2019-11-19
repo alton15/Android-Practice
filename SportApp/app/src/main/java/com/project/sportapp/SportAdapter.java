@@ -30,7 +30,7 @@ public class SportAdapter extends RecyclerView.Adapter<SportAdapter.ViewHolder> 
     public SportAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View itemView = inflater.inflate(R.layout.list_item, parent, false);
+        View itemView = inflater.inflate(R.layout.list_item2, parent, false);
         return new ViewHolder( itemView, this );
     }
 
