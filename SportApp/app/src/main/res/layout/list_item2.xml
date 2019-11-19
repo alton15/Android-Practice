@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -16,18 +16,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/title"/>
+            android:id="@+id/title"
+            android:layout_alignBottom="@id/img_sports"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/newsTitle"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:text="News"
             android:id="@+id/subTitle"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/img_sports"
+            android:textColor="?android:textColorSecondary"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:text="@string/sports_info_placeholder"
             android:id="@+id/newsTitle"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
