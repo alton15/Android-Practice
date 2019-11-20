@@ -30,3 +30,4 @@
 
 - 피트니스 관리 앱을 만들기 위한 기능 공부
   - Sensor 사용
+- SportApp Glide 사용
