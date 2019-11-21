@@ -1,7 +1,9 @@
 package com.project.notification_practice;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -18,51 +20,56 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
-    Button btn_notify;
+    private Button create;
+    private Button remove;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationManager notificationManager =
-                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            NotificationChannel notificationChannel =
-                    new NotificationChannel("channel_id", "channel_name", NotificationManager.IMPORTANCE_DEFAULT);
-            notificationChannel.setDescription("channel description");
-            notificationChannel.enableLights(true); notificationChannel.setLightColor(Color.GREEN);
-            notificationChannel.enableVibration(true);
-            notificationChannel.setVibrationPattern(new long[]{100, 200, 100, 200});
-            notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            notificationManager.createNotificationChannel(notificationChannel);
-        }
+        create = findViewById(R.id.create);
+        remove = findViewById(R.id.remove);
 
-        btn_notify = findViewById(R.id.btn_notify);
-        btn_notify.setOnClickListener(new View.OnClickListener() {
+        create.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
-                Bitmap mLargeIconForNotify = BitmapFactory.decodeResource(getResources(), R.drawable.image0);
 
-                PendingIntent mPendingIntent = PendingIntent.getActivity(MainActivity.this, 0,
-                        new Intent(getApplicationContext(), MainActivity.class),
-                        PendingIntent.FLAG_CANCEL_CURRENT);
-
-                Notification.Builder mBuilder = new Notification.Builder(MainActivity.this)
-                        .setSmallIcon(R.drawable.image0)
-                        .setContentTitle("알림!")
-                        .setContentText("Notification On")
-                        .setDefaults(Notification.DEFAULT_VIBRATE)
-                        .setLargeIcon(mLargeIconForNotify)
-                        .setPriority(Notification.PRIORITY_DEFAULT)
-                        .setAutoCancel(true)
-                        .setContentIntent(mPendingIntent);
-
-                NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                mNotificationManager.notify(0, mBuilder.build());
+                createNotification();
             }
         });
+        remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                removeNotification();
+            }
+        });
+    }
+
+    private void createNotification() {
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
+
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentTitle("알림 제목");
+        builder.setContentText("알람 세부 텍스트");
+
+        builder.setColor(Color.RED);
+
+        builder.setAutoCancel(true);
+
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationManager.createNotificationChannel(new NotificationChannel("default", "기본 채널", NotificationManager.IMPORTANCE_DEFAULT));
+        }
+
+        notificationManager.notify(1, builder.build());
+    }
+
+    private void removeNotification() {
+
+        NotificationManagerCompat.from(this).cancel(1);
     }
 }
