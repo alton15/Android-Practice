@@ -1,6 +1,6 @@
 # Android-Practice
 
-## 안드로이드 기초 지식 등을 
+## 안드로이드 기초 지식 등을 익힙니다
 
 ## 1월 4일
  - Button에 onClick으로 기능을 넣어준다.
